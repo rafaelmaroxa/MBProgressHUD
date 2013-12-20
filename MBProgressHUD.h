@@ -537,8 +537,8 @@ typedef enum {
 
 @property(nonatomic) CGFloat radius;
 @property(nonatomic, MB_STRONG) UIColor *tintColor;
-@property(nonatomic, MB_WEAK) CGFloat saturationDeltaFactor;
-@property(nonatomic) UIImage *maskImage;
+@property(nonatomic, assign) CGFloat saturationDeltaFactor;
+@property(nonatomic, MB_STRONG) UIImage *maskImage;
 
 ///Light color effect.
 + (MMBlurComponents *) lightEffect;
@@ -557,7 +557,7 @@ typedef enum {
 
 @end
 
-@interface UIImage (ImageEffects)
+@interface UIImage (MBImageEffects)
 
 - (UIImage *)applyBlurWithCrop:(CGRect) bounds resize:(CGSize) size blurRadius:(CGFloat) blurRadius tintColor:(UIColor *) tintColor saturationDeltaFactor:(CGFloat) saturationDeltaFactor maskImage:(UIImage *) maskImage;
 

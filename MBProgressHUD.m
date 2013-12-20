@@ -1055,11 +1055,11 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 @interface MMBlurView ()
 
 @property(nonatomic, MB_WEAK) UIView *parent;
-@property(nonatomic, MB_WEAK) CGPoint location;
-@property(nonatomic, MB_WEAK) MMBlurType blurType;
+@property(nonatomic, assign) CGPoint location;
+@property(nonatomic, assign) MMBlurType blurType;
 @property(nonatomic, MB_STRONG) MMBlurComponents *colorComponents;
 @property(nonatomic, MB_STRONG) UIImageView *backgroundImageView;
-@property(nonatomic, MB_WEAK) dispatch_source_t timer;
+@property(nonatomic, assign) dispatch_source_t timer;
 //Property with retain or strong attribute must be of object type
 @end
 
@@ -1238,7 +1238,7 @@ dispatch_source_t DispatchTimer(uint64_t interval, uint64_t leeway, dispatch_que
 
 #define scaleDownFactor 4
 
-@implementation UIImage (ImageEffects)
+@implementation UIImage (MBImageEffects)
 
 - (UIImage *)applyBlurWithCrop:(CGRect) bounds resize:(CGSize) size blurRadius:(CGFloat) blurRadius tintColor:(UIColor *) tintColor saturationDeltaFactor:(CGFloat) saturationDeltaFactor maskImage:(UIImage *) maskImage {
     
