@@ -660,14 +660,15 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
             self.blurView = [MMBlurView loadWithLocation:boxRect.origin parent:self.superview frame:boxRect];
             [self addSubview:self.blurView];
             [self sendSubviewToBack:self.blurView];
+
+            CGRect frame = self.blurView.frame;
+            frame.origin = boxRect.origin;
+            self.blurView.frame = frame;
+            if(self.darkBlur)
+                [self.blurView blurWithColor:[MMBlurComponents darkEffect]];
+            else
+                [self.blurView blurWithColor:[MMBlurComponents lightEffect]];
         }
-        CGRect frame = self.blurView.frame;
-        frame.origin = boxRect.origin;
-        self.blurView.frame = frame;
-        if(self.darkBlur)
-            [self.blurView blurWithColor:[MMBlurComponents darkEffect]];
-        else
-            [self.blurView blurWithColor:[MMBlurComponents lightEffect]];
     }else{
         if(self.blurView){
             [self.blurView removeFromSuperview];
